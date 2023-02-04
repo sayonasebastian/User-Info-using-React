@@ -1,0 +1,99 @@
+.App {
+  text-align: center;
+}
+
+html {
+  height: 100%;
+}
+body {
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
+  background: linear-gradient(#141e30, #243b55);
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.container h3
+ {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: left;
+}
+
+.container h2
+ {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #b2ad7f;
+  text-align: center;
+}
+
+.container  input {
+  position: relative;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.container button{  
+  border-radius: 4px;
+  height: 44px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  -webkit-transition : all 200ms linear;
+  transition: all 200ms linear;
+  padding: 0 30px;
+  letter-spacing: 1px;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  text-align: center;
+  border: none;
+  background-color: #81BBBB;
+  color: #102770;
+  box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
+}
+.container button:active,
+.container button:focus{  
+  background-color: #599595;
+  color: #102770;
+  box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+}
+.container button:hover{  
+  background-color: #599595;
+  color: #102770;
+  box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+}
+
+.container .userinfo .back{
+  margin-left: 10px;
+}  
