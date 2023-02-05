@@ -69,7 +69,6 @@ class Form extends React.Component {
         file.readAsText(e.target.files[0])
     }
 
-
     createUser() {
 
         axios
@@ -84,7 +83,7 @@ class Form extends React.Component {
             .then(res => {
                 console.log(res.data)
             })
-            .catch(error => console.error(`There was an error creating the book: ${error}`))
+            .catch(error => console.error(`Error: ${error}`))
     }
 
     retriveInfo() {

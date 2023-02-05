@@ -5,10 +5,10 @@ const compression = require('compression')
 const cors = require('cors')
 const helmet = require('helmet')
 
-// Import routes
 const usersRouter = require('./router');
 
-// Set default port for express app
+const HOSTNAME = process.env.HOST || "0.0.0.0";
+
 const PORT = process.env.PORT || 5001
 
 const app = express();
@@ -30,6 +30,6 @@ app.use(function (req, res, next) {
   res.status(404).send('Error has occured 404')
 })
 
-app.listen(PORT, function () {
-  console.log(`Server is running on: ${PORT}`)
+app.listen(PORT, HOSTNAME, function () {
+  console.log(`Server is running on: https:/${HOST}:${PORT}`)
 })
