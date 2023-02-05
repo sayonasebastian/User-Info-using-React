@@ -31,5 +31,5 @@ app.use(function (req, res, next) {
 })
 
 app.listen(PORT, HOSTNAME, function () {
-  console.log(`Server is running on: https:/${HOST}:${PORT}`)
+  console.log(`Server is running on: https:/${HOSTNAME}:${PORT}`)
 })
