@@ -12,7 +12,8 @@ class Form extends React.Component {
             fname: "",
             lname: "",
             email: "",
-            mode: "Login"
+            mode: "Login",
+            count:"0"
         }
         this.state = this.initialState;
         this.createUser = this.createUser.bind(this)
@@ -23,6 +24,7 @@ class Form extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleMode = this.handleMode.bind(this)
         this.retriveInfo = this.retriveInfo.bind(this)
+        this.readFile = this.readFile.bind(this)
     }
 
     handleChange(event) {
@@ -31,10 +33,6 @@ class Form extends React.Component {
             [name]: value
         })
     }
-
-    clearState = () => {
-        this.setState({ ...this.initialState });
-    };
 
     handleBack(modeCurrent) {
         this.clearState();
@@ -45,6 +43,33 @@ class Form extends React.Component {
         this.setState({ mode: modeCurrent });
     }
 
+    handleSubmit(event) {
+        event.preventDefault();
+        this.retriveInfo();
+    }
+
+    handleRegister(event) {
+        event.preventDefault();
+        this.createUser();
+        this.clearState();
+        this.handleMode("Login");
+    }
+
+    clearState = () => {
+        this.setState({ ...this.initialState });
+    }
+
+    readFile = async (e) => {
+        e.preventDefault();
+        const file = new FileReader()
+        file.onload = async (e) => {
+            var text = (e.target.result).split(new RegExp([" ", "\n"].join('|'), 'g'));
+            this.setState({ count: text.length })
+        };
+        file.readAsText(e.target.files[0])
+    }
+
+
     createUser() {
 
         axios
@@ -53,7 +78,8 @@ class Form extends React.Component {
                 password: this.state.password,
                 fname: this.state.fname,
                 lname: this.state.lname,
-                email: this.state.email
+                email: this.state.email,
+                count: this.state.count
             })
             .then(res => {
                 console.log(res.data)
@@ -72,25 +98,13 @@ class Form extends React.Component {
                     let info = response.data[0];
                     if (response.data[0].password === this.state.password) {
                         this.handleMode("Info");
-                        this.setState({ fname: info.fname, lname: info.lname, email: info.email });
+                        this.setState({ fname: info.fname, lname: info.lname, email: info.email, count: info.count });
                     } else alert("Invalid password");
 
                 } else this.handleMode("Register");
             })
             .catch(error => console.error(`User list unavialable: ${error}`))
 
-    }
-
-    handleSubmit(event) {
-        event.preventDefault();
-        this.retriveInfo();
-    }
-
-    handleRegister(event) {
-        event.preventDefault();
-        this.createUser();
-        this.clearState();
-        this.handleMode("Login");
     }
 
     render() {
@@ -104,6 +118,7 @@ class Form extends React.Component {
                     handleChange={this.handleChange}
                     handleRegister={this.handleRegister}
                     handleBack={this.handleBack}
+                    readFile={this.readFile}
                     state={this.state}
                 /> : <UserInfo
                     handleChange={this.handleChange}

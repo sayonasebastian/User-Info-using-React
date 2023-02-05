@@ -1,7 +1,7 @@
 
 const path = require('path')
 
-const dbPath = path.resolve(__dirname, 'db/db.sqlite')
+const dbPath = path.resolve(__dirname, 'db/database.sqlite')
 
 const knex = require('knex')({
   client: 'sqlite3',
@@ -21,7 +21,8 @@ knex.schema
         dt.string('password')
         dt.string('fname')
         dt.string('lname')
-        dt.integer('email')
+        dt.string('email')
+        dt.string('count')
       })
         .then(() => {
           res.json({ status: 200 })

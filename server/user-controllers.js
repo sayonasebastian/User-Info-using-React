@@ -8,6 +8,7 @@ exports.usersCreate = async (req, res) => {
       'fname': req.body.fname,
       'lname': req.body.lname,
       'email': req.body.email,
+      'count': req.body.count,
       'id': req.body.id,
     })
     .then((data) => {

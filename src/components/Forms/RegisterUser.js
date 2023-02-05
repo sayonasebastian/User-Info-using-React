@@ -2,7 +2,7 @@ import React from "react"
 function RegisterUser(props) {
     return (
         <div className="userinfo">
-             <h2>New User Registration</h2>
+            <h2>New User Registration</h2>
             <form onSubmit={props.handleRegister}>
                 <input required
                     type="text"
@@ -25,7 +25,7 @@ function RegisterUser(props) {
                     onChange={props.handleChange}
                     placeholder="Email"
                 /><br /><br />
-               
+                <input type="file" onChange={(e) => props.readFile(e)} />
                 <button type="submit">Register</button>
                 <button className="back" onClick={() => props.handleBack("Login")}>Back</button>
             </form>
