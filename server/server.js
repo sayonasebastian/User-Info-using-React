@@ -7,8 +7,6 @@ const helmet = require('helmet')
 
 const usersRouter = require('./router');
 
-const HOSTNAME = process.env.HOST || "0.0.0.0";
-
 const PORT = process.env.PORT || 5001
 
 const app = express();
@@ -30,6 +28,6 @@ app.use(function (req, res, next) {
   res.status(404).send('Error has occured 404')
 })
 
-app.listen(PORT, HOSTNAME, function () {
-  console.log(`Server is running on: https:/${HOSTNAME}:${PORT}`)
+app.listen(PORT, function () {
+  console.log(`Server is running on:${PORT}`)
 })

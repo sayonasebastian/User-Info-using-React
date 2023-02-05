@@ -37,7 +37,7 @@ body {
  {
   margin: 0 0 30px;
   padding: 0;
-  color: #b2ad7f;
+  color: #f4d58d;
   text-align: center;
 }
 
@@ -92,6 +92,7 @@ body {
   background-color: #599595;
   color: #102770;
   box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+  cursor: pointer;
 }
 
 .container .userinfo .back{
