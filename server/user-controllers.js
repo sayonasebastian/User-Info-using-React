@@ -9,6 +9,7 @@ exports.usersCreate = async (req, res) => {
       'lname': req.body.lname,
       'email': req.body.email,
       'count': req.body.count,
+      'file': req.body.file,
       'id': req.body.id,
     })
     .then((data) => {

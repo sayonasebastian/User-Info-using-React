@@ -1,7 +1,7 @@
 
 const path = require('path')
 
-const dbPath = path.resolve(__dirname, 'db/database.sqlite')
+const dbPath = path.resolve(__dirname, 'db/db.sqlite')
 
 const knex = require('knex')({
   client: 'sqlite3',
@@ -22,6 +22,7 @@ knex.schema
         dt.string('fname')
         dt.string('lname')
         dt.string('email')
+        dt.string('file')
         dt.string('count')
       })
         .then(() => {

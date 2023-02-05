@@ -19,13 +19,12 @@ function RegisterUser(props) {
                     placeholder="Last name"
                 /><br /><br />
                 <input required
-                    type="email"
+                    tyspe="email"
                     value={props.state.email}
                     name="email"
                     onChange={props.handleChange}
                     placeholder="Email"
                 /><br /><br />
-                <input type="file" onChange={(e) => props.readFile(e)} />
                 <button type="submit">Register</button>
                 <button className="back" onClick={() => props.handleBack("Login")}>Back</button>
             </form>

@@ -98,3 +98,7 @@ body {
 .container .userinfo .back{
   margin-left: 10px;
 }  
+
+.container .fileDownload{
+  margin-bottom: 10px;
+}
